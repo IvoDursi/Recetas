@@ -35,39 +35,36 @@ class _ImagesCat extends StatelessWidget {
       margin: EdgeInsets.all(8),
       child: GestureDetector(
         onTap: (){
-          Navigator.pushNamed(context, "rawfood");
+          Navigator.pushNamed(context, this.categoria);
         },
-        child: Hero(
-          tag: this.categoria,
-          child: Stack(
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: Image(
-                  image: AssetImage(this.imagen),
-                  fit: BoxFit.fitWidth,
-                  width: 230,
+        child: Stack(
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Image(
+                image: AssetImage(this.imagen),
+                fit: BoxFit.fitWidth,
+                width: 230,
+              ),
+            ),
+            Positioned(
+              bottom: 15,
+              right: 15,
+              child: Container(
+                width: 190,
+                height: 50,
+                decoration: BoxDecoration(
+                 color: Colors.black54,
+                 borderRadius: BorderRadius.circular(20)
+                ),
+                child: Stack(
+                  children: [
+                    Positioned(left:12.5,top:13,child: Text(this.categoria, style: TextStyle(color: Colors.white, fontSize: 19, fontWeight: FontWeight.bold)))
+                  ],
                 ),
               ),
-              Positioned(
-                bottom: 15,
-                right: 15,
-                child: Container(
-                  width: 190,
-                  height: 50,
-                  decoration: BoxDecoration(
-                   color: Colors.black54,
-                   borderRadius: BorderRadius.circular(20)
-                  ),
-                  child: Stack(
-                    children: [
-                      Positioned(left:12.5,top:13,child: Text(this.categoria, style: TextStyle(color: Colors.white, fontSize: 19, fontWeight: FontWeight.bold)))
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       )
     );

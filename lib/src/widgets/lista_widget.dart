@@ -14,7 +14,6 @@ class Lista extends StatelessWidget {
         Elementos(color: Colors.yellow, texto: "D"),
         Elementos(color: Colors.green, texto: "E"),
         Elementos(color: Colors.grey, texto: "F"),
-        Elementos(color: Colors.orange, texto: "G"),
       ],
     );
   }
