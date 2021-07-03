@@ -82,6 +82,7 @@ class _AddRecipePageState extends State<AddRecipePage> {
         ),
         SizedBox(height:10),
         _indicaciones(),
+        _category(),
         _botonAdd(),
         SizedBox(height:10),
       ],
@@ -178,13 +179,13 @@ class _AddRecipePageState extends State<AddRecipePage> {
         textCapitalization: TextCapitalization.sentences,
         style: TextStyle(color: Colors.black54, fontWeight: FontWeight.w600, fontSize: 18),
           decoration: InputDecoration(
-          errorMaxLines: 10,
+          errorMaxLines: 8,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20)
           ),
           labelStyle: TextStyle(color: Colors.white), 
         ),
-        maxLines: 10,
+        maxLines: 6,
         onSaved: (value) => receta.ingredientes = value,
         validator: (value){
           if(value.length < 3){
@@ -211,7 +212,7 @@ class _AddRecipePageState extends State<AddRecipePage> {
           ),
           labelStyle: TextStyle(color: Colors.white), 
         ),
-        maxLines: 16,
+        maxLines: 8,
         onSaved: (value) => receta.indicaciones = value,
         validator: (value){
           if(value.length < 3){
@@ -221,6 +222,85 @@ class _AddRecipePageState extends State<AddRecipePage> {
           }
         },
       ),
+    );
+  }
+
+  Widget _category(){
+    return Container(
+      child: Table(
+        children: [
+          TableRow(
+            children: [
+              RadioListTile(
+                title: Text("Raw Food"),
+                value: "rawfood",
+                groupValue: receta.categoria,
+                onChanged: (value){
+                  receta.categoria = value;
+                  setState(() {                  
+                  });
+                },
+              ),
+              RadioListTile(
+                title: Text("Bakery"),
+                value: "bakery",
+                groupValue: receta.categoria,
+                onChanged: (value){
+                  receta.categoria = value;
+                  setState(() { });
+                },
+              ),
+            ]
+          ),
+          TableRow(
+            children: [
+              RadioListTile(
+                title: Text("Classics Veganized"),
+                value: "classics",
+                groupValue: receta.categoria,
+                onChanged: (value){
+                  receta.categoria = value;
+                  setState(() {                  
+                  });
+                },
+              ),
+              RadioListTile(
+                title: Text("Pasta & Sauces"),
+                value: "Pasta & Sauces",
+                groupValue: receta.categoria,
+                onChanged: (value){
+                  receta.categoria = value;
+                  setState(() { });
+                },
+              ),
+            ]
+          ),
+          TableRow(
+            children: [
+              RadioListTile(
+                title: Text("Dressing"),
+                value: "Dressing",
+                groupValue: receta.categoria,
+                onChanged: (value){
+                  receta.categoria = value;
+                  setState(() {                  
+                  });
+                },
+              ),
+              RadioListTile(
+                title: Text("Snacks"),
+                value: "Snacks",
+                groupValue: receta.categoria,
+                onChanged: (value){
+                  receta.categoria = value;
+                  setState(() { });
+                },
+              ),
+            ]
+          ),
+
+        ],
+      )
     );
   }
   
@@ -322,6 +402,7 @@ class _AddRecipePageState extends State<AddRecipePage> {
       recetasProvider.editarReceta(receta);
     } 
     Navigator.pushReplacementNamed(context, "home");
+    print(receta.categoria);
   }
 
   _seleccionarFoto() async {

@@ -82,47 +82,47 @@ class Listado extends StatelessWidget {
 
     final size = MediaQuery.of(context).size;
 
-    return Container(
-      margin: EdgeInsets.only(left: 10, right: 10, top: 10),
-      height: size.width * 0.51,
-      decoration: BoxDecoration(
-        color: Colors.lime[100],
-        borderRadius: BorderRadius.circular(20)
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _imagen(context, recet),
-          Container(margin: EdgeInsets.only(left:15, top:2),child: Text(recet.nombrereceta, style: TextStyle(fontSize: 27, fontFamily: "marker"),))
-        ],
-      )
-    );
-  }
-
-  Widget _imagen(BuildContext context, Receta recet){
     return GestureDetector(
       onTap: (){
         Navigator.pushNamed(context, "detallereceta", arguments: recet);
       },
       child: Container(
-        width: 500,
-        height: 170,
+        margin: EdgeInsets.only(left: 10, right: 10, top: 10),
+        height: size.width * 0.51,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.only(bottomRight: Radius.circular(20), topLeft: Radius.circular(20), topRight: Radius.circular(20)),
-          color: Colors.black26
+          color: Colors.lime[100],
+          borderRadius: BorderRadius.circular(20)
         ),
-        child: (recet.fotoUrl == null)
-          ? Image(image: AssetImage('assets/noimg.png'))
-          : Container(
-            child: ClipRRect(
-              borderRadius: BorderRadius.only(bottomRight: Radius.circular(20), topLeft: Radius.circular(20), topRight: Radius.circular(20)),
-              child: Image(
-                image: NetworkImage( recet.fotoUrl ),
-                fit: BoxFit.cover,
-              ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _imagen(context, recet),
+            Container(margin: EdgeInsets.only(left:15, top:2),child: Text(recet.nombrereceta, style: TextStyle(fontSize: 27, fontFamily: "marker"),))
+          ],
+        )
+      ),
+    );
+  }
+
+  Widget _imagen(BuildContext context, Receta recet){
+    return Container(
+      width: 500,
+      height: 170,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.only(bottomRight: Radius.circular(20), topLeft: Radius.circular(20), topRight: Radius.circular(20)),
+        color: Colors.black26
+      ),
+      child: (recet.fotoUrl == null)
+        ? Image(image: AssetImage('assets/noimg.png'))
+        : Container(
+          child: ClipRRect(
+            borderRadius: BorderRadius.only(bottomRight: Radius.circular(20), topLeft: Radius.circular(20), topRight: Radius.circular(20)),
+            child: Image(
+              image: NetworkImage( recet.fotoUrl ),
+              fit: BoxFit.cover,
             ),
           ),
-      ),
+        ),
     );
   }
 

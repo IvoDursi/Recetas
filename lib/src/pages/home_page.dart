@@ -76,19 +76,24 @@ class HomePage extends StatelessWidget {
 }
 
   Widget _last(BuildContext context, Receta recet){
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal:12, vertical: 5),
-      height: 80,
-      decoration: BoxDecoration(
-        color: Colors.greenAccent[100],
-        borderRadius: BorderRadius.circular(10)
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Container(margin: EdgeInsets.only(left:20),child: Text(recet.nombrereceta, style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold))),
-          Container(margin:EdgeInsets.all(10),child: Image(image: AssetImage("assets/like.png")))
-        ],
+    return GestureDetector(
+      onTap: (){
+        Navigator.pushNamed(context, "detallereceta", arguments: recet);
+      },
+      child: Container(
+        margin: EdgeInsets.symmetric(horizontal:12, vertical: 5),
+        height: 80,
+        decoration: BoxDecoration(
+          color: Colors.greenAccent[100],
+          borderRadius: BorderRadius.circular(10)
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(margin: EdgeInsets.only(left:20),child: Text(recet.nombrereceta, style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold))),
+            Container(margin:EdgeInsets.all(15),child: Image(image: AssetImage("assets/plate.png")))
+          ],
+        ),
       ),
     );
   }

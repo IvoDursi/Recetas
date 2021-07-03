@@ -11,12 +11,14 @@ import 'package:receta/src/pagescategorias/dressing_page.dart';
 import 'package:receta/src/pagescategorias/pasta_page.dart';
 import 'package:receta/src/pagescategorias/rawfood_page.dart';
 import 'package:receta/src/pagescategorias/snacks_page.dart';
+import 'package:receta/src/provider/infotodas.dart';
 import 'package:receta/src/widgets/lista_widget.dart';
  
 void main() {
   runApp(MultiProvider(
     providers: [
-      ChangeNotifierProvider<CategoriaRec>(create: (_) => CategoriaRec(),)
+      ChangeNotifierProvider<CategoriaRec>(create: (_) => CategoriaRec(),),
+      ChangeNotifierProvider<TodasInfo>(create: (_) => TodasInfo())
     ],
     child: MyApp(),
   ));

@@ -44,7 +44,7 @@ class DetalleRecPage extends StatelessWidget {
                   SizedBox(height: 10),
                   Text("category", style: TextStyle(fontSize: 30, color: Colors.greenAccent[700], fontFamily: "marker")),
                   SizedBox(height: 5),
-                  Text("Raw Food", style: TextStyle(fontSize: 50, color: Colors.white, fontFamily: "marker")),
+                  Text(receta.categoria, style: TextStyle(fontSize: 50, color: Colors.white, fontFamily: "marker")),
                   SizedBox(height: 5),
                 ],
               ),
@@ -55,25 +55,26 @@ class DetalleRecPage extends StatelessWidget {
       ],
     );
   }
-
-
   
   Widget _encabezado(BuildContext context, Receta receta){
 
     return (receta.fotoUrl == null)
       ? Image(image: AssetImage('assets/noimg.png'))
-      : Container(
-        width: 450,
-        height: 450,
-        margin: EdgeInsets.all(10),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(250),
-          child: Image(
-            image: NetworkImage( receta.fotoUrl ),
-            fit: BoxFit.cover,
+      : Hero(
+        tag: "x",
+        child: Container(
+          width: 470,
+          height: 470,
+          margin: EdgeInsets.all(10),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(250),
+            child: Image(
+              image: NetworkImage( receta.fotoUrl ),
+              fit: BoxFit.cover,
+            ),
           ),
-        ),
-    );
+    ),
+      );
   }
 
   final circulo = Container(
