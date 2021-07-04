@@ -64,11 +64,13 @@ class Listado extends StatelessWidget {
       if (snapshot.hasData) {
 
         final recet = snapshot.data;
-        final ultimas = recet.reversed.toList();
+        Iterable<Receta> receta = recet.where((re) => re.categoria == "Pasta & Sauces").toList().reversed;
+        List ultimas = receta.toSet().toList();
+
 
         return ListView.builder(
           physics: BouncingScrollPhysics(),
-          itemCount: recet.length,
+          itemCount: ultimas.length,
           itemBuilder: (context, i ) => _lista(context,  ultimas[i])
         );
       } else {

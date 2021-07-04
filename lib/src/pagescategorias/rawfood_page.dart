@@ -64,11 +64,12 @@ class Listado extends StatelessWidget {
       if (snapshot.hasData) {
 
         final recet = snapshot.data;
-        final ultimas = recet.reversed.toList();
+        Iterable<Receta> receta = recet.where((re) => re.categoria == "Raw Food").toList().reversed;
+        List ultimas = receta.toSet().toList();
 
         return ListView.builder(
           physics: BouncingScrollPhysics(),
-          itemCount: recet.length,
+          itemCount: ultimas.length,
           itemBuilder: (context, i ) => _lista(context,  ultimas[i])
         );
       } else {
@@ -85,6 +86,26 @@ class Listado extends StatelessWidget {
     return GestureDetector(
       onTap: (){
         Navigator.pushNamed(context, "detallereceta", arguments: recet);
+      },
+      onLongPress: (){
+        showDialog(context: context, builder: (context) => AlertDialog(
+          title: Text("Want to remove ${recet.nombrereceta} from the list?"),
+          actions: [
+            FlatButton(
+              onPressed: (){
+                recetasProvider.borrarReceta(recet.id);
+                Navigator.pop(context);
+              },
+              child: Text("Ok"),
+            ),
+            FlatButton(
+              onPressed: (){
+                Navigator.pop(context);
+              },
+              child: Text("Cancel"),
+            )
+          ],
+        ));
       },
       child: Container(
         margin: EdgeInsets.only(left: 10, right: 10, top: 10),

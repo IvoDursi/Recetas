@@ -45,7 +45,19 @@ class DetalleRecPage extends StatelessWidget {
                   Text("category", style: TextStyle(fontSize: 30, color: Colors.greenAccent[700], fontFamily: "marker")),
                   SizedBox(height: 5),
                   Text(receta.categoria, style: TextStyle(fontSize: 50, color: Colors.white, fontFamily: "marker")),
-                  SizedBox(height: 5),
+                  SizedBox(height: 15),
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.pushNamed(context, "agregarcategoria", arguments: receta);
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Tap here to edit", style: TextStyle(fontSize: 20, color: Colors.white, fontFamily: "marker")),
+                        Container(margin: EdgeInsets.only(left: 10),child: Icon(Icons.edit, color: Colors.greenAccent))
+                      ],
+                    ),
+                  )
                 ],
               ),
             )

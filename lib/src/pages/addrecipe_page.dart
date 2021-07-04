@@ -232,8 +232,9 @@ class _AddRecipePageState extends State<AddRecipePage> {
           TableRow(
             children: [
               RadioListTile(
+                activeColor: Colors.greenAccent[700],
                 title: Text("Raw Food"),
-                value: "rawfood",
+                value: "Raw Food",
                 groupValue: receta.categoria,
                 onChanged: (value){
                   receta.categoria = value;
@@ -242,8 +243,9 @@ class _AddRecipePageState extends State<AddRecipePage> {
                 },
               ),
               RadioListTile(
+                activeColor: Colors.greenAccent[700],
                 title: Text("Bakery"),
-                value: "bakery",
+                value: "Bakery",
                 groupValue: receta.categoria,
                 onChanged: (value){
                   receta.categoria = value;
@@ -255,8 +257,9 @@ class _AddRecipePageState extends State<AddRecipePage> {
           TableRow(
             children: [
               RadioListTile(
+                activeColor: Colors.greenAccent[700],
                 title: Text("Classics Veganized"),
-                value: "classics",
+                value: "Classics Veganized",
                 groupValue: receta.categoria,
                 onChanged: (value){
                   receta.categoria = value;
@@ -265,6 +268,7 @@ class _AddRecipePageState extends State<AddRecipePage> {
                 },
               ),
               RadioListTile(
+                activeColor: Colors.greenAccent[700],
                 title: Text("Pasta & Sauces"),
                 value: "Pasta & Sauces",
                 groupValue: receta.categoria,
@@ -278,6 +282,7 @@ class _AddRecipePageState extends State<AddRecipePage> {
           TableRow(
             children: [
               RadioListTile(
+                activeColor: Colors.greenAccent[700],
                 title: Text("Dressing"),
                 value: "Dressing",
                 groupValue: receta.categoria,
@@ -288,6 +293,7 @@ class _AddRecipePageState extends State<AddRecipePage> {
                 },
               ),
               RadioListTile(
+                activeColor: Colors.greenAccent[700],
                 title: Text("Snacks"),
                 value: "Snacks",
                 groupValue: receta.categoria,
